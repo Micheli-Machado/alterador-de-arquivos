@@ -30,8 +30,8 @@ public class Program
             }
             finally
             {
-                Console.WriteLine("Operação Finalizada!");
-                Thread.Sleep(2000);
+                Thread.Sleep(60000);
+                Console.Clear();
             }
 
             var horaFinalizou = DateTime.Now;

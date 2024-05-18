@@ -13,14 +13,13 @@ public class FormatadorDeTextos
     {
         var cArquivos = new ControladorDeArquivos();
         var qArquivos = cArquivos.Arquivos.Length;
+        var config = new Configuracoes();
+        config.Atualizar();
         while (qArquivos > 0)
         {
             for (int i = 0; i <= qArquivos - 1; i++)
             {
                 cArquivos.Ler(cArquivos.Arquivos, i);
-
-                var config = new Configuracoes();
-                config.Atualizar();
 
                 ValorLocalizar = config.ValorParaLocalizar;
                 ValorSubstituto = config.ValorDeSubstituicao;
@@ -32,7 +31,7 @@ public class FormatadorDeTextos
                 cArquivos.Deletar(cArquivos.Arquivos, i);
                 qArquivos = cArquivos.Arquivos.Length;
             }
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
         }
 
     }
