@@ -30,7 +30,7 @@ public class Program
             }
             finally
             {
-                Thread.Sleep(60000);
+                Thread.Sleep(30000);
                 Console.Clear();
             }
 
