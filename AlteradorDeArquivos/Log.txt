@@ -1,0 +1,11 @@
+System.IO.FileNotFoundException: Could not find file 'C:\remessa\CB140500.rem'.
+File name: 'C:\remessa\CB140500.rem'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(String path)
+   at AlteradorDeArquivos.ControladorDeArquivos.Ler(String[] arquivos, Int32 posicao) in C:\GIT\alterador-de-arquivos\AlteradorDeArquivos\ControladorDeArquivos.cs:line 41
+   at AlteradorDeArquivos.FormatadorDeTextos..ctor() in C:\GIT\alterador-de-arquivos\AlteradorDeArquivos\FormatadorDeTextos.cs:line 20
+   at AlteradorDeArquivos.Program.Main(String[] args) in C:\GIT\alterador-de-arquivos\AlteradorDeArquivos\Program.cs:line 13

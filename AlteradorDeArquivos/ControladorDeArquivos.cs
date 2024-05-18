@@ -10,7 +10,7 @@ public class ControladorDeArquivos
     public string [] Arquivos;
     private string DiretorioDeSaida;
     public string Conteudo;
-    public DirectoryInfo NomeArquivo;
+    public string NomeArquivo;
 
 
 
@@ -28,7 +28,7 @@ public class ControladorDeArquivos
 
    public void Salvar(string conteudoNovo, string[] arquivos ,int posicao)
    {
-        var NomeArquivo = new DirectoryInfo(arquivos[posicao]).Name;
+        NomeArquivo = new DirectoryInfo(arquivos[posicao]).Name;
         using (StreamWriter arquivo = new StreamWriter(DiretorioDeSaida + NomeArquivo))
         {
             arquivo.Write(conteudoNovo);
@@ -43,4 +43,11 @@ public class ControladorDeArquivos
             Conteudo = arquivo.ReadToEnd();
         }
     }
+
+    public void Deletar(string[] arquivos, int posicao) 
+    {
+        File.Delete(arquivos[posicao]);
+        Arquivos = Directory.GetFiles(DiretorioDeLeitura);
+    }
+
 }

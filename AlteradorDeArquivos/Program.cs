@@ -6,19 +6,40 @@ public class Program
 {
     static void Main(string[] args)
     {
-        try
+        string log = System.AppDomain.CurrentDomain.BaseDirectory.ToString();
+        using (StreamWriter arquivoLog = new StreamWriter(log + "\\Log.txt"))
         {
-            var editar = new FormatadorDeTextos();
+            arquivoLog.Write("");
         }
-        catch (Exception ex)
+        var hora = DateTime.Now;
+        while (hora.Hour < 23 )
         {
-            Console.WriteLine("Falha na alteração!");
-            Console.WriteLine("Entre em contato com o telefone (48) 2101-6770");
-        }
-        finally
-        {
-            Console.WriteLine("Operação Finalizada!");
-            Thread.Sleep(2000);
+            try
+            {
+                var editar = new FormatadorDeTextos();
+            }
+            catch (Exception ex)
+            {
+                string logEscreve= System.AppDomain.CurrentDomain.BaseDirectory.ToString();
+                using (StreamWriter arquivoLog = new StreamWriter(logEscreve + "\\Log.txt"))
+                {
+                    arquivoLog.Write(ex.ToString());
+                }
+                Console.WriteLine("Falha na alteração!");
+                Console.WriteLine("Entre em contato com o telefone (48) 2101-6770");
+            }
+            finally
+            {
+                Console.WriteLine("Operação Finalizada!");
+                Thread.Sleep(2000);
+            }
+
+            var horaFinalizou = DateTime.Now;
+            string logFinalizou = System.AppDomain.CurrentDomain.BaseDirectory.ToString();
+            using (StreamWriter arquivoLog = new StreamWriter(logFinalizou + "\\Log.txt"))
+            {
+                arquivoLog.Write($"Alterador foi encerrado em {horaFinalizou}.");
+            }
         }
     }
 }
